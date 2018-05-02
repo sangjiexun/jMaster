@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>SESSION</title>
+	</head>
+	<body>
+		<div style="width: 500px;padding: 10px;background: #FFC;">
+		<form action="/jMaster/LoginServlet" method="post">
+				<table style="width:500px;background: #cfc;">
+					<tr>
+						<td style="width:100px;">ユーザー名</td>
+						<td><input type="text" name="name" style="width:90%;"></td>
+					</tr>
+					<tr>
+						<td style="width:100px;">パスワード</td>
+						<td><input type="password" name="pw" style="width:90%"></td>
+					</tr>
+					<tr>
+						<td style="width:100px;">
+						</td>
+						<td>
+							<input type="hidden" name="action" value="login">
+							<input type="submit" value="ログイン">
+						</td>
+					</tr>
+				</table>
+			</form>
+			商品一覧
+			<table style="width:500px;background: #cfc;">
+				<tr>
+					<td style="width:250px;">
+						<a href="/jMaster/AddCartServlet?productNo=100">パソコン</a>
+					</td>
+					<td>
+						<a href="/jMaster/AddCartServlet?productNo=101">プリンタ</a>
+					</td>
+				</tr>
+				<tr>
+					<td style="width:250px;">
+						<a href="/jMaster/AddCartServlet?productNo=102">デジタルカメラ</a>
+					</td>
+					<td>
+						<a href="/jMaster/AddCartServlet?productNo=999">ひとつ前を削除</a>
+					</td>
+				</tr>
+			</table>
+			<a href="/jMaster/LoginServlet?action=logout">ログアウト</a>
+		</div>
+		<div></div>
+	</body>
+</html>

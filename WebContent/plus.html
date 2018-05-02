@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Plus</title>
+	</head>
+<!--
+	リクエストパラメータ（name="名前"）
+-->
+	<body>
+		<form action="/jMaster/PlusServlet" method="post" style="width: 500px;padding: 10px;background: #FFC;">
+			<h2 style="margin: 0;">足し算</h2>
+			<div style="padding: 10px 0;">
+				<input type="text" name="value1" >
+				+
+				<input type="text" name="value2">
+			</div>
+<!--
+			<table style="width:500px;background: #cfc;">
+				<tr>
+					<td style="width:300px;">お支払い方法を選択してください。</td>
+					<td>
+						<input type="radio" name="pay" value="card">クレジットカード<br>
+						<input type="radio" name="pay" value="bank">銀行振り込み<br>
+						<input type="radio" name="pay" value="cash">代引き
+					</td>
+				</tr>
+			</table>
+			<br>
+			最後にアンケートの回答をお願いします。
+			<table style="width:500px;background: #cfc;">
+				<tr>
+					<td style="width:300px;">普段ご利用されているサービスは何ですか。（複数回答可）</td>
+					<td>
+						<input type="checkbox" name="site" value="fb">FaceBook<br>
+						<input type="checkbox" name="site" value="tw">Twitter<br>
+						<input type="checkbox" name="site" value="yt">YouTube
+					</td>
+				</tr>
+			</table>
+			<br>
+			<table style="width:500px;background: #cfc;">
+				<tr>
+					<td style="width:100px;">名前</td>
+					<td>
+						<input type="text" name="name" placeholder="名前を入力"
+						style="width:300px;padding: 5px;margin: 10px;border: solid 1px gray;border-radius: 10px;">
+					</td>
+				</tr>
+			</table>
+ -->
+<!--
+			<br>
+			商品一覧
+			<table style="width:500px;background: #cfc;">
+				<tr>
+					<td style="width:250px;">
+						<a href="/jMaster/AddCartServlet?productNo=100">パソコン</a>
+					</td>
+					<td>
+						<a href="/jMaster/AddCartServlet?productNo=101">プリンタ</a>
+					</td>
+				</tr>
+				<tr>
+					<td style="width:250px;">
+						<a href="/jMaster/AddCartServlet?productNo=102">デジタルカメラ</a>
+					</td>
+					<td>INPUTと併用はできない<br>なので今回はERROR</td>
+				</tr>
+			</table>
+ -->
+			<div style="padding-top: 10px;text-align: center;">
+				<input type="submit" value="送信">
+			</div>
+
+			<div></div>
+		</form>
+	</body>
+</html>
