@@ -21,9 +21,9 @@ public class PlusServlet extends HttpServlet {
 		request.setCharacterEncoding( "UTF-8" );
 		String name = request.getParameter("name");
 */
-		response.setContentType("text/html; charset = UTF-8");
-		PrintWriter out = response.getWriter();
-		out.println( "<html><head><title>サーブレットれんしう0426</title></head><body>" );
+//		response.setContentType("text/html; charset = UTF-8");
+//		PrintWriter out = response.getWriter();
+//		out.println( "<html><head><title>サーブレットれんしう0426</title></head><body>" );
 
 		// 足し算の値を受け取っている
 		String num01 = request.getParameter("value1");
@@ -31,7 +31,7 @@ public class PlusServlet extends HttpServlet {
 
 		// 入力値がない場合の処理
 		if( num01 == null || num01.length() == 0 || num02 == null || num02.length() == 0 ) {
-			showNotEnterdError(out);
+//			showNotEnterdError(out);
 			return;
 		}
 		int i1;
@@ -45,7 +45,7 @@ public class PlusServlet extends HttpServlet {
 
 		// 入力値が整数じゃない場合の処理
 		catch (NumberFormatException e) {
-			showNotIntegerError(out);
+//			showNotIntegerError(out);
 			return;
 		}
 
@@ -60,11 +60,11 @@ public class PlusServlet extends HttpServlet {
 
 
 		// AnswerServletの呼出し部
-		RequestDispatcher rd = request.getRequestDispatcher( "/AnswerServlet" );
+		RequestDispatcher rd = request.getRequestDispatcher( "/answer.jsp" );
 		rd.forward(request, response);
 
 
-		out.println( num01 + " + " + num02 + " = " + answer + "<br><br>" );
+//		out.println( num01 + " + " + num02 + " = " + answer + "<br><br>" );
 
 /*
 		// ラジオボタンはひとつしか選べないので変数に格納
@@ -150,7 +150,7 @@ public class PlusServlet extends HttpServlet {
 		}
 		out.println( "<br>" + productName + "の紹介ページ" );
 */
-		out.println( "</body></html>" );
+//		out.println( "</body></html>" );
 	}
 	private void showNotEnterdError( PrintWriter out ) {
 		out.println( "整数をふたつ入力してください" );

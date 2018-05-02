@@ -25,7 +25,7 @@ public class No003 extends HttpServlet {
 		beginTags(out);
 
 
-		// HTML内の「name="hatena"」を取得（いらないかも？）
+		// HTML内の「name="hatena"」を取得（hidden・いらないかも？）
 //		String hatena = request.getParameter( "hatena" );
 
 		// HTML内の「name="○○"」を取得
@@ -33,17 +33,82 @@ public class No003 extends HttpServlet {
 		String password = request.getParameter( "password" );
 		String mailAddless = request.getParameter( "mailAddless" );
 
+
+		// ◆◆◆◆◆◆◆◆◆◆　↓↓↓　ここから　↓↓↓　◆◆◆◆◆◆◆◆◆◆　未入力の場合のメッセージ
+		if(		userName == null || userName.length() ==0 ||
+				password == null || password.length() ==0 ||
+				mailAddless == null || mailAddless.length() ==0
+		) {
+			out.println( "ユーザー名・パスワード・メールアドレスを入力してください" );
+			return;
+		}
+		// ◆◆◆◆◆◆◆◆◆◆　↑↑↑　ここまで　↑↑↑　◆◆◆◆◆◆◆◆◆◆　未入力の場合のメッセージ
+
+
 		for ( int i = 0; i < this.userName.length; i++ ) {
 			if(		userName.equals( this.userName[ i ] ) &&
 					password.equals( this.password[ i ] ) &&
 					mailAddless.equals( this.mailAddless[ i ] )
 			) {
-				// ログインしたよーって言っている
-				HttpSession judgeLogin = request.getSession();
-				// judgeLoginにtrueといれて、ログインしたことを教えている。
-				judgeLogin.setAttribute("judgeLogin", "true");
+				// セッションを作成（破棄されるまで継続）
+				HttpSession sessionActive = request.getSession();
+				// セッション情報の中に「ログイン判定（judgeLogin）：ログイン中（true）」と記録する
+				// つまり、ログイン中だよーと言っている
+				sessionActive.setAttribute( "judgeLogin", "true" );
+
+				emphasisTags( out, "ログイン成功！" );
+
+				// セッションがある状態でログインしているかをチェック（二重チェック）
 			}
 		}
+
+
+		// ◆◆◆◆◆◆◆◆◆◆　↓↓↓　ここから　↓↓↓　◆◆◆◆◆◆◆◆◆◆　ログインできてなない場合のメッセージ
+		// セッションがない場合（1つ目のチェック）
+		if( request.getSession(false) == null ) {
+			emphasisTags( out, "入力が間違っています" );
+			out.println( "ユーザー情報が一致しません" );
+			endTags(out);
+			return;
+		}
+		// セッションがある場合（1つ目のチェック）
+		else {
+			// ログイン状態でない場合（2つ目のチェック）
+			// セッションがあるのに、ログアウト状態の場合・今回のケースではほぼないパターン
+			if(		request.getSession().getAttribute("judgeLogin") == null ||
+					!request.getSession().getAttribute("judgeLogin").equals("true")
+			) {
+				emphasisTags(out, "入力が間違っています");
+				out.println( "ユーザー情報が一致しません" );
+				endTags(out);
+				return;
+			}
+		}
+		// ◆◆◆◆◆◆◆◆◆◆　↑↑↑　ここまで　↑↑↑　◆◆◆◆◆◆◆◆◆◆　ログインできてなない場合のメッセージ
+
+
+		// ◆◆◆◆◆◆◆◆◆◆　↓↓↓　ここから　↓↓↓　◆◆◆◆◆◆◆◆◆◆　ログイン情報の確認
+		// パスワードを文字数分「丸」に置き換える
+		String hiddenPassword = "";
+		for (int i = 0; i < password.length(); i++) {
+			hiddenPassword += "●";
+		}
+
+		out.print( "<table style =\"border-spacing: 5px; text-align: left;\" class=\"formTable\">" );
+		out.print( "	<tr>" );
+		out.print( "		<td style=\"width: 150px\">ユーザー名</td>" );
+		out.print( "		<td>" + userName + "</td>" );
+		out.print( "	</tr>" );
+		out.print( "	<tr>" );
+		out.print( "		<td style=\"width: 150px\">パスワード</td>" );
+		out.print( "		<td>" + hiddenPassword + "</td>" );
+		out.print( "	</tr>" );
+		out.print( "	<tr>" );
+		out.print( "		<td style=\"width: 150px\">メールアドレス</td>" );
+		out.print( "		<td>" + mailAddless + "</td>" );
+		out.print( "	</tr>" );
+		out.print( "</table>" );
+		// ◆◆◆◆◆◆◆◆◆◆　↑↑↑　ここまで　↑↑↑　◆◆◆◆◆◆◆◆◆◆　ログイン情報の確認
 
 
 		endTags(out);
@@ -53,11 +118,14 @@ public class No003 extends HttpServlet {
 	}
 	private void beginTags(PrintWriter out) {
 		out.println( "<!DOCTYPE html><html><head><title>No_Name</title></head><body>" );
-		out.println( "<div style=\"background:#FFC; padding:10px; width:600px;\">" );
-		out.println( "<div style=\"background:#CFC; padding:20px;\">" );
+		out.println( "<div style=\"background:#FF9; padding:10px; width:600px;\">" );
+		out.println( "<div style=\"background:#9F9; padding:20px;\">" );
 	}
 	private void endTags(PrintWriter out) {
-		out.println( "</div><hr>フッター_v001<br><a href=\"practice/no002.html\">BACK</a></div>" );
+		out.println( "</div><hr style = \"border: solid 5px #CCC;\">フッター_v001<br><a href=\"practice/no003.html\">BACK</a></div>" );
 		out.println( "</body></html>" );
+	}
+	private void emphasisTags( PrintWriter out, String text ) {
+		out.println( "<span style = \"font-size: 24pt;\">" + text + "</span>" );
 	}
 }
