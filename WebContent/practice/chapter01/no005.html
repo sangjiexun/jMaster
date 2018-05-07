@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+<!--
+	Postリクエストで受け取った場合はGetリクエストへ処理を任せ、
+	Getリクエストで受け取った場合は「Hello World」と表示されるHTMLを返すサーブレットを作成してください
+-->
+	<body>
+		<div  style="background:#FFC; padding:10px; width:600px;">
+			<form action="/jMaster/program05" method="post" style="background:#CFC; padding:20px; text-align: center;">
+				<input type="submit" value="POST">
+			</form>
+			<form action="/jMaster/program05" method="get" style="background:#CFC; padding:20px; text-align: center;">
+				<input type="submit" value="GET">
+			</form>
+		</div>
+	</body>
+</html>
