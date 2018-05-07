@@ -20,14 +20,22 @@ public class No004 extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		beginTags(out);
 
+		// ◆◆◆◆◆◆◆◆◆◆　↓↓↓　ここから　↓↓↓　◆◆◆◆◆◆◆◆◆◆　入力値の受け取りと未入力の場合のメッセージ
 		String serAlphabet = request.getParameter( "valueAlphabet" );
 		if( serAlphabet == null || serAlphabet.length() == 0 ) {
 			out.println(  "値を入力してください" );
 			endTags(out);
 			return;
 		}
+		// ◆◆◆◆◆◆◆◆◆◆　↑↑↑　ここまで　↑↑↑　◆◆◆◆◆◆◆◆◆◆　入力値の受け取りと未入力の場合のメッセージ
 
-		out.println( serAlphabet );
+		// 入力された小文字を出力
+		emphasisTags( out, serAlphabet );
+		out.println("→");
+
+		// 大文字に変換・出力
+		serAlphabet = serAlphabet.toUpperCase();
+		emphasisTags( out, serAlphabet );
 
 		endTags(out);
 	}
@@ -41,7 +49,10 @@ public class No004 extends HttpServlet {
 		out.println( "<div style=\"padding: 10px; background: #FFC; text-align: center;\">" );
 	}
 	private void endTags( PrintWriter out ) {
-		out.println( "</div>FOOTER_v001<br><a href=\"practice/chapter01/no004.html\"></a>" );
+		out.println( "</div>FOOTER_v005<br><a href=\"practice/chapter01/no004.html\">BACK</a>" );
 		out.println( "</div></body></html>" );
+	}
+	private void emphasisTags( PrintWriter out, String text ) {
+		out.println( "<span style = \"font-size: 24pt;\">" + text + "</span>" );
 	}
 }

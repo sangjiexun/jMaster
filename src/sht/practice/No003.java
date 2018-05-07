@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
 */
 @WebServlet("/No003")
 public class No003 extends HttpServlet {
-	String userName[] = { "a", "b", "c" }, password[] = { "aaa", "bbb", "ccc" }, mailAddless[] = { "a@a.com", "b@b.co.jp", "c@c.ne.jp" };
+	String userName[] = { "a", "b", "c" }, password[] = { "aaa", "bbb", "ccc" }, mailAddress[] = { "a@a.com", "b@b.co.jp", "c@c.ne.jp" };
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType( "text/html; charset=UTF-8" );
@@ -31,15 +31,16 @@ public class No003 extends HttpServlet {
 		// HTML内の「name="○○"」を取得
 		String userName = request.getParameter( "userName" );
 		String password = request.getParameter( "password" );
-		String mailAddless = request.getParameter( "mailAddless" );
+		String mailAddress = request.getParameter( "mailAddress" );
 
 
 		// ◆◆◆◆◆◆◆◆◆◆　↓↓↓　ここから　↓↓↓　◆◆◆◆◆◆◆◆◆◆　未入力の場合のメッセージ
 		if(		userName == null || userName.length() ==0 ||
 				password == null || password.length() ==0 ||
-				mailAddless == null || mailAddless.length() ==0
+				mailAddress == null || mailAddress.length() ==0
 		) {
 			out.println( "ユーザー名・パスワード・メールアドレスを入力してください" );
+			endTags(out);
 			return;
 		}
 		// ◆◆◆◆◆◆◆◆◆◆　↑↑↑　ここまで　↑↑↑　◆◆◆◆◆◆◆◆◆◆　未入力の場合のメッセージ
@@ -48,7 +49,7 @@ public class No003 extends HttpServlet {
 		for ( int i = 0; i < this.userName.length; i++ ) {
 			if(		userName.equals( this.userName[ i ] ) &&
 					password.equals( this.password[ i ] ) &&
-					mailAddless.equals( this.mailAddless[ i ] )
+					mailAddress.equals( this.mailAddress[ i ] )
 			) {
 				// セッションを作成（破棄されるまで継続）
 				HttpSession sessionActive = request.getSession();
@@ -57,13 +58,12 @@ public class No003 extends HttpServlet {
 				sessionActive.setAttribute( "judgeLogin", "true" );
 
 				emphasisTags( out, "ログイン成功！" );
-
-				// セッションがある状態でログインしているかをチェック（二重チェック）
+//				endTags(out);
 			}
 		}
 
 
-		// ◆◆◆◆◆◆◆◆◆◆　↓↓↓　ここから　↓↓↓　◆◆◆◆◆◆◆◆◆◆　ログインできてなない場合のメッセージ
+		// ◆◆◆◆◆◆◆◆◆◆　↓↓↓　ここから　↓↓↓　◆◆◆◆◆◆◆◆◆◆　ログインできてなない場合のメッセージ（今回いらない？）
 		// セッションがない場合（1つ目のチェック）
 		if( request.getSession(false) == null ) {
 			emphasisTags( out, "入力が間違っています" );
@@ -84,7 +84,7 @@ public class No003 extends HttpServlet {
 				return;
 			}
 		}
-		// ◆◆◆◆◆◆◆◆◆◆　↑↑↑　ここまで　↑↑↑　◆◆◆◆◆◆◆◆◆◆　ログインできてなない場合のメッセージ
+		// ◆◆◆◆◆◆◆◆◆◆　↑↑↑　ここまで　↑↑↑　◆◆◆◆◆◆◆◆◆◆　ログインできてなない場合のメッセージ（今回いらない？）
 
 
 		// ◆◆◆◆◆◆◆◆◆◆　↓↓↓　ここから　↓↓↓　◆◆◆◆◆◆◆◆◆◆　ログイン情報の確認
@@ -105,7 +105,7 @@ public class No003 extends HttpServlet {
 		out.print( "	</tr>" );
 		out.print( "	<tr>" );
 		out.print( "		<td style=\"width: 150px\">メールアドレス</td>" );
-		out.print( "		<td>" + mailAddless + "</td>" );
+		out.print( "		<td>" + mailAddress + "</td>" );
 		out.print( "	</tr>" );
 		out.print( "</table>" );
 		// ◆◆◆◆◆◆◆◆◆◆　↑↑↑　ここまで　↑↑↑　◆◆◆◆◆◆◆◆◆◆　ログイン情報の確認
@@ -122,7 +122,7 @@ public class No003 extends HttpServlet {
 		out.println( "<div style=\"background:#9F9; padding:20px;\">" );
 	}
 	private void endTags(PrintWriter out) {
-		out.println( "</div><hr style = \"border: solid 5px #CCC;\">フッター_v001<br><a href=\"practice/no003.html\">BACK</a></div>" );
+		out.println( "</div><hr style = \"border: solid 2px #CCC;\">フッター_v005<br><a href=\"practice/no003.html\">BACK</a></div>" );
 		out.println( "</body></html>" );
 	}
 	private void emphasisTags( PrintWriter out, String text ) {

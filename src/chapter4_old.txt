@@ -3,22 +3,22 @@
 その整数を乗算した結果を返すサーブレットを作成してください。
 ----------------------------
 HTML：no001
-配置場所：WebContent/practice/chapter4/
+配置場所：WebContent/practice/
         ****
-クラス名：Ch4No001
-パッケージ名：sht.practice.chapter4
-URLマッピング：Ch4No001（デフォルト）
+クラス名：No001
+パッケージ名：sht.practice
+URLマッピング：No001
 ----------------------------
 
 ■問題２
 ボタンを押すとランダムな数値が画面に表示されるアプリケーションを作成してください。
 ----------------------------
 HTML：no002
-配置場所：WebContent/practice/chapter4/
+配置場所：WebContent/practice/
         ****
-クラス名：Ch4No002
-パッケージ名：sht.practice.chapter4
-URLマッピング：Ch4No002
+クラス名：No002
+パッケージ名：sht.practice
+URLマッピング：No002
 ----------------------------
 
 ■問題３
@@ -27,10 +27,10 @@ URLマッピング：Ch4No002
 ※未入力時のエラー処理も記述すること
 ----------------------------
 HTML：no003
-配置場所：WebContent/practice/chapter4/
+配置場所：WebContent/practice/
         ****
-クラス名：Ch4No003
-パッケージ名：sht.practice.chapter4
-URLマッピング：Ch4No003
+クラス名：No003
+パッケージ名：sht.practice
+URLマッピング：No003
 ----------------------------
 
