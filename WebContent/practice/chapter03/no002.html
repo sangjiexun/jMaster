@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			body{
+				color: #585;
+			}
+			.formTable{
+				border-spacing: 5px;
+				text-align: left;
+			}
+			.formTable input{
+				padding: 10px;
+				border: none;
+				border-radius: 10px;
+			}
+			.onMouse{
+				padding: 10px 15px;
+
+				background: #FFF;
+				color: #585;
+				border: none;
+				border-radius: 10px;
+
+				cursor: pointer;
+			}
+		</style>
+	</head>
+<!--
+	ラジオボタンのデータをGetで受け取り、チェックされたデータを表示するHTMLを返すサーブレットを作成してください
+	※ラジオボタンは3つ以上作成すること
+-->
+	<body>
+		<div  style="background:#FF9; padding: 10px; width: 400px;">
+			<form action="/jMaster/Ch3No002" method="get" style="background: #9F9; padding: 20px; text-align: center;">
+				<table class="formTable">
+					<tr>
+						<td style="width: 150px">ユーザー名</td>
+						<td>
+							<input type="radio" name="ani" value="d">　DOG<br>
+							<input type="radio" name="ani" value="m">　MONKEY<br>
+							<input type="radio" name="ani" value="b">　BIRD<br>
+						</td>
+					</tr>
+				</table>
+				<br>
+				<input type="submit" value="　送信　" class="onMouse">
+			</form>
+		</div>
+	</body>
+</html>

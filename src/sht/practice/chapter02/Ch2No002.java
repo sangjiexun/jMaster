@@ -29,15 +29,11 @@ public class Ch2No002 extends HttpServlet {
 			return;
 		}
 
-		// ◆◆◆◆◆ 試験出力 ◆◆◆◆◆
-		out.println(serPrice + "<br>");
 
 		// int整数型に変換（String(参照型) → int(変数型)の変換なのでパースイントを使う）
-		int serPriceInt = (int) ( Integer.parseInt(serPrice) * 1.08 );
+		int serPriceInt = (int)( Integer.parseInt(serPrice) * 1.08 );
 
-
-
-
+		emphasisTags(out, serPriceInt);
 
 		endTags(out);
 	}
@@ -48,10 +44,10 @@ public class Ch2No002 extends HttpServlet {
 		out.println( "<div style=\"padding: 10px; background: #FFC; text-align: center;\">" );
 	}
 	private void endTags( PrintWriter out ) {
-		out.println( "</div>FOOTER_v001<br><a href=\"practice/chapter01/no005.html\">BACK</a>" );
+		out.println( "</div>FOOTER_v003<br><a href=\"practice/chapter02/no002.html\">BACK</a>" );
 		out.println( "</div></body></html>" );
 	}
-	private void emphasisTags( PrintWriter out, String text ) {
+	private void emphasisTags( PrintWriter out, int text ) {
 		out.println( "<span style = \"font-size: 24pt;\">" + text + "</span>" );
 	}
 }

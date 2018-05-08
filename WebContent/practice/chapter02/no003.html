@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			body{
+				color: #585;
+			}
+			.formTable{
+				border-spacing: 5px;
+				text-align: left;
+			}
+			.formTable input{
+				padding: 10px;
+				border: none;
+				border-radius: 10px;
+				width: 300px;
+			}
+			.onMouse{
+				padding: 10px 15px;
+
+				background: #FFF;
+				color: #585;
+				border: none;
+				border-radius: 10px;
+
+				cursor: pointer;
+			}
+		</style>
+	</head>
+<!--
+	ユーザ名とパスワードを受け取り、ユーザ名が「user」、パスワードが「pass」の場合のみ
+	「ログイン成功」と表示するHTMLを返すサーブレットを作成してください
+	※上記以外の場合は「ログイン失敗」と返すようにすること
+-->
+	<body>
+		<div  style="background:#FF9; padding: 10px; width: 600px;">
+			<form action="/jMaster/Ch2No003" method="post" style="background: #9F9; padding: 20px; text-align: center;">
+				<table class="formTable">
+					<tr>
+						<td style="width: 150px">ユーザー名</td>
+						<td><input type="text" name="userName" placeholder="user_name"></td>
+					</tr>
+					<tr>
+						<td style="width: 150px">パスワード</td>
+						<td><input type="password" name="password" placeholder="password"></td>
+					</tr>
+				</table>
+				<br>
+				<input type="submit" value="　送信　" class="onMouse">
+			</form>
+		</div>
+	</body>
+</html>
