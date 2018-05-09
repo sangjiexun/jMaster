@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			body{
+				color: #585;
+			}
+			.formTable input{
+				padding: 10px;
+				border: none;
+				border-radius: 10px;
+				width: 300px;
+			}
+			.onMouse{
+				padding: 10px 15px;
+
+				background: #FFF;
+				color: #585;
+				border: none;
+				border-radius: 10px;
+
+				cursor: pointer;
+			}
+		</style>
+	</head>
+<!--
+	ユーザ名・パスワード・メールアドレスを入力して送信すると、
+	ユーザが入力した情報を最終確認する画面が表示されるようにアプリケーションを作成してください。
+	※未入力時のエラー処理も記述すること
+ -->
+	<body>
+		<div  style="background:#FF9; padding: 10px; width: 600px;">
+			<form action="/jMaster/No003" method="post" style="background: #9F9; padding: 20px; text-align: center;">
+
+
+<table style ="border-spacing: 5px; text-align: left;" class="formTable">
+	<tr>
+		<td style="width: 150px">ユーザー名</td>
+		<td><input type="text" name="userName" placeholder="user_name"></td>
+	</tr>
+	<tr>
+		<td style="width: 150px">パスワード</td>
+		<td><input type="password" name="password" placeholder="password"></td>
+	</tr>
+	<tr>
+		<td style="width: 150px">メールアドレス</td>
+		<td><input type="text" name="mailAddress" placeholder="sample@domain.co.jp"></td>
+	</tr>
+</table>
+
+
+				<br>
+				<input type="submit" value="　送信　" class="onMouse">
+			</form>
+		</div>
+	</body>
+</html>

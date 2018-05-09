@@ -1,0 +1,40 @@
+body{
+	margin: 0;
+}
+#container{
+	margin: 0 auto;
+	padding: 10px;
+	width: 600px;
+
+	background:#FFC;
+	color: #585;
+}
+
+form{
+	background: #CFC;
+	padding: 20px;
+	text-align: center;
+}
+.formTable{
+	border-spacing: 5px;
+	text-align: left;
+}
+.formTable input{
+	padding: 10px;
+	border: none;
+	border-radius: 10px;
+	width: 300px;
+}
+.onMouse{
+	padding: 10px 15px;
+
+	background: #FFF;
+	color: #585;
+	border: none;
+	border-radius: 10px;
+
+	cursor: pointer;
+}
+iframe {
+	border: none;
+}

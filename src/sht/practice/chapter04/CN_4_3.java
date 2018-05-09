@@ -1,4 +1,4 @@
-package sht.practice;
+package sht.practice.chapter04;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,8 +15,8 @@ import javax.servlet.http.HttpSession;
 	ユーザが入力した情報を最終確認する画面が表示されるようにアプリケーションを作成してください。
 	※未入力時のエラー処理も記述すること
 */
-@WebServlet("/CN_4_3")
-public class No003 extends HttpServlet {
+@WebServlet("/No003")
+public class CN_4_3 extends HttpServlet {
 	String userName[] = { "a", "b", "c" }, password[] = { "aaa", "bbb", "ccc" }, mailAddress[] = { "a@a.com", "b@b.co.jp", "c@c.ne.jp" };
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
