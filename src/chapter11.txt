@@ -1,0 +1,25 @@
+■事前準備
+MySQLへログイン後、以下のSQLを実行して事前準備を行ってください
+・データベースの変更
+ USE sample2
+・テーブルの作成
+　CREATE TABLE user(
+	id serial primary key,
+	name text,
+	pass text
+ );
+・データ登録
+ INSERT INTO user(name,pass) VALUES ('sht','pass');
+
+ 
+■問題１
+ログイン画面からユーザ名とパスワードを入力し、userテーブルのユーザ名・パスワードと合致した場合に
+マイページ画面へ遷移するアプリケーションを作成してください。
+また、マイページではユーザ名を表示するようにしてください。
+--------------------------
+<画面>
+ログイン画面：login.jsp
+マイページ画面：mypage.jsp
+<処理>
+認証処理：AppServlet
+--------------------------

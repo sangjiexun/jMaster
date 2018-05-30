@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+	■問題１
+	社員登録プログラムを下記の仕様に基づいて作成してください
+	<仕様>
+	・HTMLのFormで社員名と社員番号をサーブレット１へ送信すること
+	・サーブレット１は社員名をリクエストスコープにいれ、サーブレット２に渡すこと
+	・サーブレット２は「"社員名"を登録しました。」を表示するHTMLを返すこと
+
+	■問題２
+	chapter6の問題１のプログラムに下記機能修正をしてください
+	<機能修正>
+	・サーブレット１は受け取った社員名と社員番号を社員（Employee）というJavaBeansに格納すること
+	・サーブレット１はEmployeeをサーブレット２へ渡すこと
+	・サーブレット２は「登録が完了しました。」のあとに登録した社員名と社員番号を表示するHTMLを返すこと
+
+	■問題３
+	chapter6の問題２のプログラムに下記機能修正をしてください
+	<機能修正>
+	・サーブレット２が返すHTMLからformのあるHTMLへ遷移するリンクを作成すること
+	・formから社員名・社員番号を登録したデータがサーブレット２ですべて順番に表示されること
+ -->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>CHAP.6</title>
+		<link rel="stylesheet" href="/jMaster/style/servlet.css">
+	</head>
+	<body>
+		<div id="container">
+			<form action="/jMaster/Ch6No001" method="post" class="art" style="margin: 0;">
+				<table>
+					<tr>
+						<td style="width: 100px;">社員名</td>
+						<td>
+							<input type="text" name="name">
+
+						</td>
+					</tr>
+					<tr>
+						<td>社員番号</td>
+						<td>
+							<input type="text" name="num">
+							<input type="submit" value="登録">
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</body>
+</html>

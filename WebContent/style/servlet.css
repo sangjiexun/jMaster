@@ -1,3 +1,6 @@
+*{
+	box-sizing: border-box;
+}
 body{
 	margin: 0;
 }
@@ -10,10 +13,13 @@ body{
 	color: #585;
 }
 
-form{
+.art{
+	width: 100%;
 	background: #9F9;
 	padding: 20px;
 	text-align: center;
+	margin-top: 10px;
+	text-align: left;
 }
 .formTable{
 	border-spacing: 5px;

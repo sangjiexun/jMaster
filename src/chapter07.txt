@@ -32,6 +32,6 @@ JSP：no003
 配置場所：WebContent/practice/chapter7
         ****
 サーブレット名：Ch7No001
-パッケージ名：sht.practice.chapter6
+パッケージ名：sht.practice.chapter7
 URLマッピング：/Ch7No001（デフォルト）
 ----------------------------

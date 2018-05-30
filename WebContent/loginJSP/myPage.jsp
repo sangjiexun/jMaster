@@ -19,7 +19,7 @@
 	<body>
 		<div  style="background:#FF9; padding: 10px; width: 400px;margin: 0 auto; text-align: right;">
 			<!-- 既にログインしている状態であるにもかかわらずログインした場合、以下を表示する -->
-			<span style="color: red; left ">
+			<span style="color: red;">
 				<c:if test="${ readyLogin ne null }">${ readyLogin }</c:if>
 			</span>
 

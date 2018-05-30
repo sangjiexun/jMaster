@@ -1,0 +1,25 @@
+■事前準備
+以下のSQLを実行し、事前準備を行ってください
+・データベースの作成
+　CREATE DATABASE dbtest;
+・データベースの変更
+ USE dbtest
+・テーブルの作成
+　CREATE TABLE tweet(
+	id serial primary key,
+	content text,
+	created_time date,
+	delete_flg integer
+ );
+・データの登録
+　INSERT INTO tweet(content,created_time,delete_flg)values("はじめてのつぶやき",'2018-05-08',0);
+ INSERT INTO tweet(content,created_time,delete_flg)values("おなかすいたな",'2018-05-08',0);
+
+■問題１
+Javaを用いて事前準備で作成したtweetテーブルにデータを登録してください
+
+■問題２
+Javaを用いて事前準備で作成したtweetテーブルのデータを全件表示してください
+
+■問題３
+Javaを用いて事前準備で作成したtweetテーブルのidが1のレコードの「delete_flg」を"1"に変更してください
